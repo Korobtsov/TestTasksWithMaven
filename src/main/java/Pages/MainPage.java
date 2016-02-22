@@ -1,26 +1,30 @@
 package Pages;
 
-import App.Utils;
+import net.thucydides.core.annotations.DefaultUrl;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+//@DefaultUrl("https://focus.kontur.ru/")
+public class MainPage extends BasePage{
+
+    public MainPage(WebDriver driver){super(driver);}
+	
+	//By searchField = By.xpath("//*[@id='search-field']");
+	//By searchButton = By.xpath("//*[@id='SearchButton']");
+
+	@FindBy(xpath = "//*[@id='search-field']")
+	public WebElement searchField;
+	@FindBy(xpath = "//*[@id='SearchButton']")
+	public WebElement searchButton;
 
 
-public class MainPage {
-	private WebDriver driver;
-	
-	public MainPage(WebDriver driver){this.driver = driver;}
-	
-	By searchField = By.xpath("//*[@id='search-field']");
-	By searchButton = By.xpath("//*[@id='SearchButton']");
-	
 	public SearchResultPage submitSearch(String entrydata){
-		WebElement field = driver.findElement(searchField);
-		Utils utils = new Utils(driver);
-		utils.clickClean(field);
-		field.sendKeys(entrydata);
-		WebElement ButtonSearch = driver.findElement(searchButton);
-		ButtonSearch.click();	
-		return new SearchResultPage(driver);
+		BasePage basePage = new BasePage(getDriver());
+		basePage.clickClean(searchField);
+		searchField.sendKeys(entrydata);
+		searchButton.click();
+		return new SearchResultPage(getDriver());
 	}
 	}

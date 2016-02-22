@@ -1,10 +1,10 @@
-import App.FireFoxSettings;
 import Pages.MainPage;
 import Pages.SearchResultPage;
+import org.junit.Assert;
 import org.junit.Test;
 
 
-public class NegativeSearch_Test extends FireFoxSettings {
+public class NegativeSearch_Test extends BaseTestClass {
 	
 	private String searchFieldInput = "Randomize";
 			
@@ -13,6 +13,6 @@ public class NegativeSearch_Test extends FireFoxSettings {
 		MainPage mainPage = new MainPage(driver);
 		mainPage.submitSearch(searchFieldInput);
 		SearchResultPage searchResultPage = new SearchResultPage(driver);
-		searchResultPage.NegativeSearch();
+		Assert.assertTrue(driver.findElement(searchResultPage.getNoResultsFlag()).isDisplayed());
 		}
 	}

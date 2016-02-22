@@ -3,11 +3,11 @@ package Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class CompanyRecordPage {
+public class CompanyRecordPage extends SearchResultPage{
 	private WebDriver driver;
 	
 	public CompanyRecordPage(WebDriver driver){
-		this.driver = driver;
+		super(driver);
 		}
 	
 	By INNfield = By.xpath("//dt[.='ИНН']");

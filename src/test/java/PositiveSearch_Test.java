@@ -1,9 +1,9 @@
-import App.FireFoxSettings;
 import Pages.MainPage;
 import Pages.SearchResultPage;
+import org.junit.Assert;
 import org.junit.Test;
 
-public class PositiveSearch_Test extends FireFoxSettings {
+public class PositiveSearch_Test extends BaseTestClass {
 	
 	private String searchFieldInput = "A";
 
@@ -12,6 +12,6 @@ public class PositiveSearch_Test extends FireFoxSettings {
 		MainPage mainPage = new MainPage(driver);
 		mainPage.submitSearch(searchFieldInput);
 		SearchResultPage searchResultPage = new SearchResultPage(driver);
-		searchResultPage.PositiveSearch();
+		Assert.assertTrue(driver.findElement(searchResultPage.getListOfResultsIsPrerentFlag()).isDisplayed());
 		}
 	}

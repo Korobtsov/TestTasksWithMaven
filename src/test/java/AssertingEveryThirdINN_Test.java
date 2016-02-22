@@ -1,4 +1,3 @@
-import App.FireFoxSettings;
 import Pages.CompanyRecordPage;
 import Pages.MainPage;
 import Pages.SearchResultPage;
@@ -9,7 +8,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class AssertingEveryThirdINN_Test extends FireFoxSettings {
+public class AssertingEveryThirdINN_Test extends BaseTestClass {
 		
 	private String searchFieldInput = "A";
 		
