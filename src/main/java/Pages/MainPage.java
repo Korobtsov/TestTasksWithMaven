@@ -10,9 +10,6 @@ import org.openqa.selenium.support.FindBy;
 public class MainPage extends BasePage{
 
     public MainPage(WebDriver driver){super(driver);}
-	
-	//By searchField = By.xpath("//*[@id='search-field']");
-	//By searchButton = By.xpath("//*[@id='SearchButton']");
 
 	@FindBy(xpath = "//*[@id='search-field']")
 	public WebElement searchField;
