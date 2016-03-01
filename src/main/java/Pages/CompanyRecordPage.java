@@ -1,8 +1,10 @@
 package Pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.junit.Assert;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.*;
 
+/*Page for record of opened company*/
 public class CompanyRecordPage extends SearchResultPage{
 	private WebDriver driver;
 	
@@ -10,19 +12,13 @@ public class CompanyRecordPage extends SearchResultPage{
 		super(driver);
 		}
 	
-	By INNfield = By.xpath("//dt[.='ИНН']");
+	@FindBy(how= How.XPATH, xpath="//dt[.='ИНН']")
+	public WebElement INNfield;
 
-	public By getINNfield() {
-		return INNfield;
-	}
-			
-	/*
-	@FindBy(how=How.XPATH, xpath="//dt[.='ИНН']")
-	private WebElement INNfield;
-	
+	/*Assert presence of INN field*/
 	public void INNfieldAsserting(){
 		Assert.assertTrue(INNfield.isDisplayed());
 	}
-	*/
+
 	
 }

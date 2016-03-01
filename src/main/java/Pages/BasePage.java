@@ -13,14 +13,15 @@ public class BasePage extends PageObject{
         super(driver, DEFAULT_IMPLICITLY_WAIT);
     }
 
+    /*Getter for default value of the wait delay*/
     protected int getImplicitWait() {
         return implicitWait;
     }
 
+    /*Help method for click on editable fields*/
     public void clickClean(WebElement a) {
         a.clear();
         a.click();
     }
-
 
 }
