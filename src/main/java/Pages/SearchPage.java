@@ -11,19 +11,31 @@ public class SearchPage extends BasePage{
 
     public SearchPage(WebDriver driver){super(driver);}
 
-	/*Element of the search field */
+	/**
+	 *  Element of the search field
+	 */
 	@FindBy(xpath = "//*[@id='search-field']")
 	public WebElement searchField;
 
-	/*Element of the "Search" button, that starts search*/
+	/**
+	 * Element of the "Search" button, that starts search
+	 */
 	@FindBy(xpath = "//*[@id='SearchButton']")
 	public WebElement searchButton;
 
-	/*Method for entry data in the search field*/
+	/**
+	 * Method for entry data in the search field
+	 */
 	public void insertDataInSearchField(String entrydata){
-		clickClean(searchField);
+		searchField.clear();
 		searchField.sendKeys(entrydata);
+		}
+	
+	/**
+	 * Method for clicking on the search button
+	 */
+	public void pressOnSearchButton(){
+		searchButton.click();
 	}
-
-	}
+}
 

@@ -10,15 +10,23 @@ public class PositiveSearch_Test extends BaseTestClass {
 
 	@Test
 	public void positiveSearch() {
-		/*Open Search page*/
+		/**
+		 * Open Search page
+		 */
 		SearchPage searchPage = new SearchPage(driver);
 		searchPage.open();
-		/*Inserting data into Search field*/
+		/**
+		 * Inserting data into Search field
+		 */
 		searchPage.insertDataInSearchField(searchFieldInput);
-		/*Click on the search button*/
-		searchPage.searchButton.click();
-		/*Asserting that No result message is present*/
+		/**
+		 * Click on the search button
+		 */
+		searchPage.pressOnSearchButton();
+		/**
+		 * Asserting that No result message is present
+		 */
 		SearchResultPage searchResultPage = new SearchResultPage(driver);
-		Assert.assertTrue(searchResultPage.listOfResultsIsPrerentFlag.isDisplayed());
+		Assert.assertTrue("Asserting presence of the companies's list that mathes to the search request", searchResultPage.listOfResultsIsPrerentFlag.isDisplayed());
 		}
 	}

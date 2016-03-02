@@ -11,17 +11,21 @@ public class BaseTestClass {
 	public WebDriver driver;
 	private final int DEFAULT_IMPLICITLY_WAIT = 5;
 
-	/*Calling and maximizing Firefox browser*/
+	/**
+	 * Calling and maximizing Firefox browser
+	 */
 	@Before
 	public void setUp(){
 		driver = new FirefoxDriver();
 		driver.manage().timeouts().implicitlyWait(DEFAULT_IMPLICITLY_WAIT, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
-	}
+		}
 
-	/*Closing browser after finishing*/
+	/**
+	 * Closing browser after finishing
+	 */
 	@After
 	public void tearDown(){
 		driver.quit();
-	}
+		}
 }
